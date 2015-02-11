@@ -6,15 +6,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class ListOfGamesActivity extends ActionBarActivity {
+public class GamesActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_of_games);
+        setContentView(R.layout.activity_games);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new ListOfGamesFragment())
+                    .add(R.id.container, new GamesFragment())
                     .commit();
         }
     }
