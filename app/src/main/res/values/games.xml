@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="games">
+        <item>Grand Theft Auto V</item>
+        <item>The Last of Us</item>
+        <item>Call of Duty: Advanced Warfare</item>
+        <item>Dark Souls II</item>
+        <item>Far Cry 4</item>
+        <item>Uncharted 3: Drake\'s Deception</item>
+        <item>Mortal Kombat X</item>
+        <item>Assassin\'s Creed Rogue</item>
+        <item>Street Fighter IV</item>
+        <item>Batman: Arkham City</item>
+        <item>God of War III</item>
+        <item>Battlefield 4</item>
+        <item>Metal Gear Solid 4: Guns of the Patriots</item>
+        <item>Middle-earth: Shadow of Mordor</item>
+        <item>The Walking Dead</item>
+    </string-array>
+</resources>
