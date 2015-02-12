@@ -39,6 +39,17 @@
     <string name="text_view_uncharted_description">A search for the fabled "Atlantis of the Sands" propels fortune hunter Nathan Drake on a trek into the heart of the Arabian Desert. When the terrible secrets of this lost city are unearthed, Drake\'s quest descends into a desperate bid for survival that strains the limits of his endurance and forces him to confront his deepest fears.</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="text_view_button_buy">Buy</string>
-    <string name="text_view_message">To buy this game, first you have to complete your information account in the settings.</string>
+    <string name="text_view_message">To buy this game, first you have to complete your user information in the settings.</string>
+    <string name="action_user_information">User information</string>
+    <string name="title_activity_user_information">User Information</string>
+    <string name="pref_mail_title">Mail</string>
+    <string name="pref_user_information">User information</string>
+    <string name="pref_name_title">Full name</string>
+    <string name="pref_street_address_title">Street Address</string>
+    <string name="pref_telephone_title">Phone Number</string>
+    <string name="pref_name_summary">Enter your full name</string>
+    <string name="pref_mail_summary">Enter your mail</string>
+    <string name="pref_street_address_summary">Enter your street address</string>
+    <string name="pref_telephone_summary">Enter your phone number</string>
 
 </resources>
