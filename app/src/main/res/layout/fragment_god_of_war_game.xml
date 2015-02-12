@@ -30,37 +30,43 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="235dp"
+        android:layout_height="match_parent"
         android:id="@+id/scrollView"
         android:paddingTop="15dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/text_view_god_of_war_description"
-            android:id="@+id/textView2"
-            android:paddingLeft="5dp" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/text_view_god_of_war_description"
+                android:id="@+id/textView2"
+                android:paddingLeft="5dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_view_button_buy"
+                android:id="@+id/button"
+                android:background="@drawable/background_button"
+                android:enabled="false"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/text_view_message"
+                android:id="@+id/text_view_message"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:paddingTop="5dp" />
+        </LinearLayout>
     </ScrollView>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/text_view_button_buy"
-        android:id="@+id/button"
-        android:background="@drawable/background_button"
-        android:enabled="false"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="@string/text_view_message"
-        android:id="@+id/textView3"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center"
-        android:paddingTop="5dp" />
 
 </LinearLayout>

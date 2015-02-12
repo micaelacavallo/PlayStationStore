@@ -1,6 +1,9 @@
 package com.example.micaela.playstationstore;
 
+import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
@@ -40,6 +43,12 @@ public class GamesFragment extends ListFragment {
     private static final String THE_LAST_OF_US = "The Last of Us";
     private static final String RESIDENT_EVIL = "Resident Evil 6";
     private static final String UNCHARTED = "Uncharted 3: Drake's Deception";
+
+    public static final String USERNAME = "username_preference";
+    public static final String NAME = "name_preference";
+    public static final String MAIL = "username_preference";
+    public static final String STREET_ADDRESS = "street_address_preference";
+    public static final String TEL = "telephone_preference";
 
 
     public GamesFragment() {
@@ -149,11 +158,29 @@ public class GamesFragment extends ListFragment {
         });
     }
 
-    private void loadFragment (Object object)
-    {
+
+    private void loadFragment (Object object) {
+        Fragment fragment = (Fragment) object;
         getFragmentManager().beginTransaction().
-                replace(R.id.container, (Fragment) object).
+                replace(R.id.container, fragment).
                 addToBackStack(null).
                 commit();
     }
+
+    public static Boolean getSharedPreferences(Activity activity) {
+        Boolean flag = false;
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(activity);
+
+        String name = sharedPreferences.getString(GamesFragment.NAME, "");
+        String username = sharedPreferences.getString(GamesFragment.USERNAME, "");
+        String mail = sharedPreferences.getString(GamesFragment.MAIL, "");
+        String street = sharedPreferences.getString(GamesFragment.STREET_ADDRESS, "");
+        String tel = sharedPreferences.getString(GamesFragment.TEL, "");
+
+        if (!name.equals("") && !username.equals("") && !mail.equals("") && !street.equals("") && !tel.equals("")) {
+            flag = true;
+        }
+        return flag;
+    }
+
 }

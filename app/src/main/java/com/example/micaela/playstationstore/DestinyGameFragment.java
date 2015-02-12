@@ -6,13 +6,16 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class DestinyGameFragment extends Fragment {
-
+    TextView mTextViewMessage;
+    Button mButtonBuy;
 
     public DestinyGameFragment() {
         // Required empty public constructor
@@ -23,8 +26,36 @@ public class DestinyGameFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_destiny, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_destiny, container, false);
+        wireUpViews(rootView);
+        prepareButton(rootView);
+        return rootView;
     }
 
+    public void getSharedPreferences() {
+        Boolean flag = GamesFragment.getSharedPreferences(getActivity());
+        if (flag) {
+            mTextViewMessage.setText("");
+            mButtonBuy.setEnabled(true);
+        }
+        else {
+            mTextViewMessage.setText(R.string.text_view_message);
+            mButtonBuy.setEnabled(false);
+        }
+    }
 
+    public void prepareButton(View rootView) {
+        mButtonBuy = (Button)rootView.findViewById(R.id.button);
+    }
+
+    public void wireUpViews(View rootView) {
+        mTextViewMessage = (TextView)rootView.findViewById(R.id.text_view_message);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getSharedPreferences();
+    }
 }
+
