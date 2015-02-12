@@ -72,5 +72,6 @@
     <string name="button_confirm">Confirm</string>
     <string name="text_view_user_information">User information</string>
     <string name="text_view_game_information">Game information</string>
+    <string name="text_view_message_final">In few minutes you will receive an email to specify the payment method and  the corresponding data. Thank you for using the PlayStation 3 Store!</string>
 
 </resources>

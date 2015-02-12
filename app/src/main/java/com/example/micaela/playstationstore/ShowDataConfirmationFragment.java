@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 /**
@@ -13,6 +14,7 @@ import android.widget.TextView;
 public class ShowDataConfirmationFragment extends Fragment {
     TextView mTextViewSummaryUser;
     TextView mTextViewSummaryGame;
+    Button mButtonConfirm;
 
     public ShowDataConfirmationFragment() {
     }
@@ -26,7 +28,21 @@ public class ShowDataConfirmationFragment extends Fragment {
         String game_name = getActivity().getIntent().getStringExtra(GamesFragment.GAME_NAME);
         String game_price = getActivity().getIntent().getStringExtra(GamesFragment.GAME_PRICE);
         prepareTextViews(rootView, data_user, game_name, game_price);
+        prepareButton(rootView);
         return rootView;
+    }
+
+    public void prepareButton(View rootView) {
+        mButtonConfirm = (Button)rootView.findViewById(R.id.button_confirm);
+        mButtonConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().beginTransaction().
+                        replace(R.id.container, new FinalFragment()).
+                        addToBackStack(null).
+                        commit();
+            }
+        });
     }
 
     public void prepareTextViews(View rootView, String[] data_user, String game_name, String game_price) {
