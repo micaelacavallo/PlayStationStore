@@ -1,9 +1,8 @@
 package com.example.micaela.playstationstore;
 
 
-import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +15,7 @@ import android.widget.TextView;
  * A simple {@link Fragment} subclass.
  */
 public class DarkSoulsGameFragment extends Fragment {
-
+    TextView mTextViewPrice;
     TextView mTextViewMessage;
     Button mButtonBuy;
 
@@ -36,7 +35,7 @@ public class DarkSoulsGameFragment extends Fragment {
     }
 
     public void getSharedPreferences() {
-        Boolean flag = GamesFragment.getSharedPreferences(getActivity());
+        Boolean flag = GamesFragment.isUserInformationComplete(getActivity());
         if (flag) {
             mTextViewMessage.setText("");
             mButtonBuy.setEnabled(true);
@@ -49,10 +48,27 @@ public class DarkSoulsGameFragment extends Fragment {
 
     public void prepareButton(View rootView) {
         mButtonBuy = (Button)rootView.findViewById(R.id.button);
+        mButtonBuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                prepareIntent();
+            }
+
+            public void prepareIntent() {
+                String[] user_data = GamesFragment.getUserInformation(getActivity());
+                Intent intent = new Intent(getActivity(), ShowDataConfirmationActivity.class);
+                intent.putExtra(GamesFragment.USER_INFORMATION, user_data);
+                intent.putExtra(GamesFragment.GAME_NAME, GamesFragment.DARK_SOULS);
+                intent.putExtra(GamesFragment.GAME_PRICE, mTextViewPrice.getText().toString());
+                startActivity(intent);
+            }
+        });
+
     }
 
     public void wireUpViews(View rootView) {
         mTextViewMessage = (TextView)rootView.findViewById(R.id.text_view_message);
+        mTextViewPrice = (TextView)rootView.findViewById(R.id.text_view_dark_souls_price);
     }
 
     @Override

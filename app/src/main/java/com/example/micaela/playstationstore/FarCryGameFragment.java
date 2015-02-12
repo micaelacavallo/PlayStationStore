@@ -1,6 +1,7 @@
 package com.example.micaela.playstationstore;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 public class FarCryGameFragment extends Fragment {
     TextView mTextViewMessage;
     Button mButtonBuy;
+    TextView mTextViewPrice;
 
     public FarCryGameFragment() {
         // Required empty public constructor
@@ -33,7 +35,7 @@ public class FarCryGameFragment extends Fragment {
     }
 
     public void getSharedPreferences() {
-        Boolean flag = GamesFragment.getSharedPreferences(getActivity());
+        Boolean flag = GamesFragment.isUserInformationComplete(getActivity());
         if (flag) {
             mTextViewMessage.setText("");
             mButtonBuy.setEnabled(true);
@@ -44,11 +46,28 @@ public class FarCryGameFragment extends Fragment {
     }
 
     public void prepareButton(View rootView) {
-        mButtonBuy = (Button) rootView.findViewById(R.id.button);
+        mButtonBuy = (Button)rootView.findViewById(R.id.button);
+        mButtonBuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                prepareIntent();
+            }
+
+            public void prepareIntent() {
+                String[] user_data = GamesFragment.getUserInformation(getActivity());
+                Intent intent = new Intent(getActivity(), ShowDataConfirmationActivity.class);
+                intent.putExtra(GamesFragment.USER_INFORMATION, user_data);
+                intent.putExtra(GamesFragment.GAME_NAME, GamesFragment.FAR_CRY);
+                intent.putExtra(GamesFragment.GAME_PRICE, mTextViewPrice.getText().toString());
+                startActivity(intent);
+            }
+        });
+
     }
 
     public void wireUpViews(View rootView) {
-        mTextViewMessage = (TextView) rootView.findViewById(R.id.text_view_message);
+        mTextViewMessage = (TextView)rootView.findViewById(R.id.text_view_message);
+        mTextViewPrice = (TextView)rootView.findViewById(R.id.text_view_far_cry_price);
     }
 
     @Override

@@ -47,6 +47,16 @@
                 android:paddingLeft="5dp"
                 android:text="@string/text_view_the_last_of_us_description" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/text_view_the_last_of_us_price"
+                android:id="@+id/text_view_the_last_of_us_price"
+                android:textStyle="bold"
+                android:layout_gravity="right"
+                android:paddingRight="10dp" />
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -55,7 +65,8 @@
                 android:background="@drawable/background_button"
                 android:enabled="false"
                 android:layout_marginTop="10dp"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"
+                android:padding="20dp"/>
 
             <TextView
                 android:layout_width="wrap_content"

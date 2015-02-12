@@ -1,6 +1,7 @@
 package com.example.micaela.playstationstore;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -14,7 +15,7 @@ import android.widget.TextView;
  * A simple {@link Fragment} subclass.
  */
 public class CallOfDutyGameFragment extends Fragment {
-
+    TextView mTextViewPrice;
     TextView mTextViewMessage;
     Button mButtonBuy;
 
@@ -34,7 +35,7 @@ public class CallOfDutyGameFragment extends Fragment {
     }
 
     public void getSharedPreferences() {
-        Boolean flag = GamesFragment.getSharedPreferences(getActivity());
+        Boolean flag = GamesFragment.isUserInformationComplete(getActivity());
         if (flag) {
             mTextViewMessage.setText("");
             mButtonBuy.setEnabled(true);
@@ -47,10 +48,27 @@ public class CallOfDutyGameFragment extends Fragment {
 
     public void prepareButton(View rootView) {
         mButtonBuy = (Button)rootView.findViewById(R.id.button);
+        mButtonBuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                prepareIntent();
+            }
+
+            public void prepareIntent() {
+                String[] user_data = GamesFragment.getUserInformation(getActivity());
+                Intent intent = new Intent(getActivity(), ShowDataConfirmationActivity.class);
+                intent.putExtra(GamesFragment.USER_INFORMATION, user_data);
+                intent.putExtra(GamesFragment.GAME_NAME, GamesFragment.CALL_OF_DUTY);
+                intent.putExtra(GamesFragment.GAME_PRICE, mTextViewPrice.getText().toString());
+                startActivity(intent);
+            }
+        });
+
     }
 
     public void wireUpViews(View rootView) {
         mTextViewMessage = (TextView)rootView.findViewById(R.id.text_view_message);
+        mTextViewPrice = (TextView)rootView.findViewById(R.id.text_view_call_of_duty_price);
     }
 
     @Override

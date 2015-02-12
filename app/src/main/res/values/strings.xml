@@ -38,7 +38,7 @@
     <string name="text_view_resident_evil_description"> Resident Evil favorites Leon S. Kennedy and Chris Redfield are joined by new characters such as Jake Muller to face a world-wide bioterrorist threat, as the action moves between North America, the war-torn Eastern European state of Edonia and the Chinese city of Lanshiang.</string>
     <string name="text_view_uncharted_description">A search for the fabled "Atlantis of the Sands" propels fortune hunter Nathan Drake on a trek into the heart of the Arabian Desert. When the terrible secrets of this lost city are unearthed, Drake\'s quest descends into a desperate bid for survival that strains the limits of his endurance and forces him to confront his deepest fears.</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="text_view_button_buy">Buy</string>
+    <string name="text_view_button_buy">Buy game</string>
     <string name="text_view_message">To buy this game, first you have to complete your user information in the settings.</string>
     <string name="action_user_information">User information</string>
     <string name="title_activity_user_information">User Information</string>
@@ -51,5 +51,26 @@
     <string name="pref_mail_summary">Enter your mail</string>
     <string name="pref_street_address_summary">Enter your street address</string>
     <string name="pref_telephone_summary">Enter your phone number</string>
+    <string name="title_activity_show_data_confirmation">Summary</string>
+
+    <string name="text_view_assassins_creed_price">$300</string>
+    <string name="text_view_batman_price">$350</string>
+    <string name="text_view_battlefield_price">$200</string>
+    <string name="text_view_call_of_duty_price">$235</string>
+    <string name="text_view_dark_souls_price">$300</string>
+    <string name="text_view_destiny_price">$335</string>
+    <string name="text_view_far_cry_price">$340</string>
+    <string name="text_view_god_of_war_price">$255</string>
+    <string name="text_view_gta_price">$275</string>
+    <string name="text_view_middle_earth_price">$150</string>
+    <string name="text_view_mortal_kombat_price">$320</string>
+    <string name="text_view_street_fighter_price">$365</string>
+    <string name="text_view_the_last_of_us_price">$400</string>
+    <string name="text_view_resident_evil_price">$300</string>
+    <string name="text_view_uncharted_price">$305</string>
+    <string name="text_view_message2">Please, confirm the following information:</string>
+    <string name="button_confirm">Confirm</string>
+    <string name="text_view_user_information">User information</string>
+    <string name="text_view_game_information">Game information</string>
 
 </resources>

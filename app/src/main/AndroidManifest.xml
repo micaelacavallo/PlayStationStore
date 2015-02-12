@@ -20,6 +20,10 @@
             android:name=".UserInformationActivity"
             android:label="@string/title_activity_user_information" >
         </activity>
+        <activity
+            android:name=".ShowDataConfirmationActivity"
+            android:label="@string/title_activity_show_data_confirmation" >
+        </activity>
     </application>
 
 </manifest>

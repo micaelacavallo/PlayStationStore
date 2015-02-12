@@ -12,10 +12,6 @@
             android:inputType="textEmailAddress"
             android:summary="@string/pref_mail_summary"></EditTextPreference>
         <EditTextPreference
-            android:key="street_address_preference"
-            android:title="@string/pref_street_address_title"
-            android:summary="@string/pref_street_address_summary"></EditTextPreference>
-        <EditTextPreference
             android:key="telephone_preference"
             android:title="@string/pref_telephone_title"
             android:inputType="phone"

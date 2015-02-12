@@ -28,27 +28,29 @@ public class GamesFragment extends ListFragment {
     ArrayAdapter<String> mAdapter;
     private ArrayList<String> mArraySort = new ArrayList<>();
 
-    private static final String ASSASINS_CREED = "Assassin's Creed Rogue";
-    private static final String BATMAN = "Batman: Arkham City";
-    private static final String BATTLEFIELD = "Battlefield 4";
-    private static final String CALL_OF_DUTY = "Call of Duty: Advanced Warfare";
-    private static final String DARK_SOULS = "Dark Souls II";
-    private static final String DESTINY = "Destiny";
-    private static final String FAR_CRY = "Far Cry 4";
-    private static final String GOD_OF_WAR = "God of War III";
-    private static final String GTA = "Grand Theft Auto V";
-    private static final String MIDDLE_EARTH = "Middle-earth: Shadow of Mordor";
-    private static final String MORTAL_KOMBAT = "Mortal Kombat X";
-    private static final String STREET_FIGHTER = "Street Fighter IV";
-    private static final String THE_LAST_OF_US = "The Last of Us";
-    private static final String RESIDENT_EVIL = "Resident Evil 6";
-    private static final String UNCHARTED = "Uncharted 3: Drake's Deception";
+    public static final String ASSASINS_CREED = "Assassin's Creed Rogue";
+    public static final String BATMAN = "Batman: Arkham City";
+    public static final String BATTLEFIELD = "Battlefield 4";
+    public static final String CALL_OF_DUTY = "Call of Duty: Advanced Warfare";
+    public static final String DARK_SOULS = "Dark Souls II";
+    public static final String DESTINY = "Destiny";
+    public static final String FAR_CRY = "Far Cry 4";
+    public static final String GOD_OF_WAR = "God of War III";
+    public static final String GTA = "Grand Theft Auto V";
+    public static final String MIDDLE_EARTH = "Middle-earth: Shadow of Mordor";
+    public static final String MORTAL_KOMBAT = "Mortal Kombat X";
+    public static final String STREET_FIGHTER = "Street Fighter IV";
+    public static final String THE_LAST_OF_US = "The Last of Us";
+    public static final String RESIDENT_EVIL = "Resident Evil 6";
+    public static final String UNCHARTED = "Uncharted 3: Drake's Deception";
 
-    public static final String USERNAME = "username_preference";
     public static final String NAME = "name_preference";
     public static final String MAIL = "username_preference";
-    public static final String STREET_ADDRESS = "street_address_preference";
     public static final String TEL = "telephone_preference";
+
+    public static final String USER_INFORMATION = "user_information";
+    public static final String GAME_NAME = "game_name";
+    public static final String GAME_PRICE = "game_price";
 
 
     public GamesFragment() {
@@ -167,20 +169,25 @@ public class GamesFragment extends ListFragment {
                 commit();
     }
 
-    public static Boolean getSharedPreferences(Activity activity) {
+    public static Boolean isUserInformationComplete(Activity activity) {
         Boolean flag = false;
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(activity);
+        String[] data = getUserInformation(activity);
 
-        String name = sharedPreferences.getString(GamesFragment.NAME, "");
-        String username = sharedPreferences.getString(GamesFragment.USERNAME, "");
-        String mail = sharedPreferences.getString(GamesFragment.MAIL, "");
-        String street = sharedPreferences.getString(GamesFragment.STREET_ADDRESS, "");
-        String tel = sharedPreferences.getString(GamesFragment.TEL, "");
-
-        if (!name.equals("") && !username.equals("") && !mail.equals("") && !street.equals("") && !tel.equals("")) {
+        if (!data[0].equals("") && !data[1].equals("") && !data[2].equals("")) {
             flag = true;
         }
+
         return flag;
+    }
+
+    public static String[] getUserInformation(Activity activity) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(activity);
+
+        String[] data = new String[3];
+        data[0] = sharedPreferences.getString(GamesFragment.NAME, "");
+        data[1] = sharedPreferences.getString(GamesFragment.MAIL, "");
+        data[2] = sharedPreferences.getString(GamesFragment.TEL, "");
+        return data;
     }
 
 }
